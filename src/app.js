@@ -7,6 +7,7 @@ const request = require('request')
 
 
 const app = express()
+const port = process.env.PORT || 3000 //get port from Heroku, or use 3000 locally
 
 //define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -108,7 +109,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000')
+// tell what port number server is started on on Heroku or locally
+app.listen(port, () => {
+    console.log('Server started on port ' + port)
 })
-//test
